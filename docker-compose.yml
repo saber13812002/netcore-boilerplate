@@ -35,6 +35,19 @@ services:
       - ./db/mssql/docker-db-init.sh:/db-init.sh
       - ./db/mssql/mssql-cars.sql:/db-init.sql
 
+  postgres:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: examplePWD
+      
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+
   netcore-boilerplate:
     image: netcore-boilerplate:local
     container_name: netcore-boilerplate

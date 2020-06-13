@@ -10,6 +10,7 @@ namespace HappyCode.NetCoreBoilerplate.Core.RegisterModules
         {
             builder.RegisterType<EmployeeRepository>().As<IEmployeeRepository>();
             builder.RegisterType<CarService>().As<ICarService>();
+            builder.RegisterType<ShippingExpressRepository>().As<IShippingExpressRepository>();
         }
     }
 }
