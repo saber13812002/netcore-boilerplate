@@ -9,7 +9,7 @@ using Microsoft.FeatureManagement;
 
 namespace HappyCode.NetCoreBoilerplate.Api.Infrastructure.Filters
 {
-    public class ApiKeyAuthorizationFilter : IAuthorizationFilter
+    public class ApiKeyAuthorizationFilter : IAsyncAuthorizationFilter
     {
         private static readonly Regex _apiKeyRegex = new Regex(@"^[Aa][Pp][Ii][Kk][Ee][Yy]\s+(?<ApiKey>.+)$", RegexOptions.Compiled);
 
@@ -22,9 +22,9 @@ namespace HappyCode.NetCoreBoilerplate.Api.Infrastructure.Filters
             _featureManager = featureManager;
         }
 
-        public void OnAuthorization(AuthorizationFilterContext context)
+        public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
         {
-            if (!_featureManager.IsEnabledAsync(FeatureFlags.ApiKey).GetAwaiter().GetResult())
+            if (!(await _featureManager.IsEnabledAsync(FeatureFlags.ApiKey)))
             {
                 return;
             }

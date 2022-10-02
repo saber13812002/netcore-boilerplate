@@ -1,6 +1,6 @@
 # netcore-boilerplate
 
-Boilerplate of API in `.NET Core 3.1`
+Boilerplate of API in ~~`.NET Core 3.1`~~ `.NET 6`
 
 | GitHub        | Codecov       |
 |:-------------:|:-------------:|
@@ -11,7 +11,7 @@ of starting an empty project and adding the same snippets each time, you can use
 
 ## Source code contains
 
-1. [Autofac](https://autofac.org/)
+1. ~~[Autofac]~~(https://autofac.org/) (Removed in [PR19](https://github.com/lkurzyniec/netcore-boilerplate/pull/19))
 1. [Swagger](https://swagger.io/) + [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)
 1. [FeatureManagement](https://github.com/microsoft/FeatureManagement-Dotnet) (Feature Flags, Feature Toggles)
 1. [HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks)
@@ -22,6 +22,7 @@ of starting an empty project and adding the same snippets each time, you can use
     * Integration tests with InMemory database
         * [FluentAssertions]
         * [xUnit]
+        * [Verify](https://github.com/VerifyTests/Verify/)
         * TestServer
     * Unit tests
         * [AutoFixture](https://github.com/AutoFixture/AutoFixture)
@@ -35,11 +36,15 @@ of starting an empty project and adding the same snippets each time, you can use
         * [xUnit]
 1. Code quality
     * [EditorConfig](https://editorconfig.org/) ([.editorconfig](.editorconfig))
-    * Analizers ([Microsoft.CodeAnalysis.Analyzers](https://github.com/dotnet/roslyn-analyzers), [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://github.com/aspnet/AspNetCore/tree/master/src/Analyzers))
-    * [Rules](HappyCode.NetCoreBoilerplate.ruleset)
+    * Analizers
+        * [Microsoft.CodeAnalysis.Analyzers](https://github.com/dotnet/roslyn-analyzers)
+        * [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://github.com/aspnet/AspNetCore/tree/master/src/Analyzers)
+        * [Microsoft.VisualStudio.Threading.Analyzers](https://github.com/microsoft/vs-threading)
+    * CodeAnalysisRules [HappyCode.NetCoreBoilerplate.ruleset](HappyCode.NetCoreBoilerplate.ruleset)
     * Code coverage
         * [Coverlet](https://github.com/tonerdo/coverlet)
         * [Codecov](https://codecov.io/)
+    * CI Code analysis with [CodeQL](https://codeql.github.com/)
 1. Docker
     * [Dockerfile](dockerfile)
     * [Docker-compose](docker-compose.yml)
@@ -52,7 +57,10 @@ of starting an empty project and adding the same snippets each time, you can use
 1. [DbUp](http://dbup.github.io/) as a db migration tool
 1. Continuous integration
     * ~~[Travis CI]~~(https://travis-ci.org/) ([travisci.yml](https://github.com/lkurzyniec/netcore-boilerplate/blob/bf65154b63f6a10d6753045c49cd378e53907816/.travis.yml))
-    * [GitHub Actions](https://github.com/features/actions) ([dotnetcore.yml](.github/workflows/dotnetcore.yml))
+    * [GitHub Actions](https://github.com/features/actions)
+        * [dotnetcore.yml](.github/workflows/dotnetcore.yml)
+        * [codeql-analysis.yml](.github/workflows/codeql-analysis.yml)
+        * [docker.yml](.github/workflows/docker.yml)
 
 ## Architecture
 
@@ -182,10 +190,6 @@ When the entire environment is up and running, you can additionally run a migrat
 ## Run unit tests
 
 Run `dotnet test` command in the root directory, it will look for test projects in `HappyCode.NetCoreBoilerplate.sln` and run them.
-
-## Migrate from ASP .NET Core 2.2 to 3.1
-
-Need to migrate from `.NET Core 2.2` to `.NET Core 3.1`? There's an [Microsoft article](https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-3.1&tabs=visual-studio) about this, but you can also, just in case, take a look at my [migration commit](https://github.com/lkurzyniec/netcore-boilerplate/commit/45764d631bce10b0d4d8db47f786ad696fa65d67) where you can find the complete list of required changes.
 
 ## To Do
 

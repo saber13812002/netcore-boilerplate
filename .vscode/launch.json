@@ -4,12 +4,13 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+
     {
       "name": "Launch API",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/src/HappyCode.NetCoreBoilerplate.Api/bin/Debug/netcoreapp3.1/HappyCode.NetCoreBoilerplate.Api.dll",
+      "program": "${workspaceFolder}/src/HappyCode.NetCoreBoilerplate.Api/bin/Debug/net6.0/HappyCode.NetCoreBoilerplate.Api.dll",
       "args": [],
       "cwd": "${workspaceFolder}/src/HappyCode.NetCoreBoilerplate.Api",
       "stopAtEntry": false,
